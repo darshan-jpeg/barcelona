@@ -84,3 +84,17 @@
     padding: 10px 14px;
   }
 }
+
+/* Initially hidden below screen */
+.navbar {
+  bottom: -100px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* When scrolled down, slide it up */
+.navbar.navbar-show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}

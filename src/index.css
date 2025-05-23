@@ -13,3 +13,7 @@ body {
   ); /* Gradient background */
 }
 
+html {
+
+  scroll-behavior: smooth;
+}

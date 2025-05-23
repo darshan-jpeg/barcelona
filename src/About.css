@@ -1,30 +1,85 @@
-.About {
-
-    background : linear-gradient(to right, #000000, #000000, #ad0000);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    
-    min-height: 50vh;
-    padding: 20px;
-    margin: 0;
-    font-size: large;
-}
-.About h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    
-    
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  
 }
 
-.About p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    justify-content:flex-start;
+.about-container {
+  padding: 40px;
+  background: transparent;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 40px auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+  justify-items: center;
+}
+
+.news-item {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 24px 32px;
+  min-height: 120px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+ ;
+}
+
+.news-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.25);
+  color: #222;
+}
+
+.about-container h2 {
+  position: relative;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 800;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  margin: 40px 0;
+
+  /* Floating animation */
+  animation: floatText 3s ease-in-out infinite;
+
+  /* Text glow effect */
+ ;
+}
+
+/* Floating animation keyframes */
+@keyframes floatText {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
