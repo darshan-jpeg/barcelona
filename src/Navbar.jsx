@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Navbar.css';
-
+import { Link } from 'react-router-dom';
 function Navbar() {
   const [show, setShow] = useState(false);
   const lastScrollY = useRef(0); // <- useRef retains value across renders
@@ -26,11 +26,12 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${show ? 'navbar-show' : ''}`}>
+      <img src="src\Barca-Logo-No-Background.png" alt="FCB Logo" className="navbar-logo" />
       <ul className="nav-links">
         <li><a href="#home" className="nav-item">Home</a></li>
         <li><a href="#merch" className="nav-item">Merch</a></li>
-        <li><a href="#login" className="nav-item">Login</a></li>
-        <li><a href="#players" className="nav-item">Players</a></li>
+        <li><Link to="/login" className="nav-item">Login</Link></li>
+        <li><a href="#Players" className="nav-item">Players</a></li>
       </ul>
     </nav>
   );

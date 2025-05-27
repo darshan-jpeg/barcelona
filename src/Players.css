@@ -1,4 +1,4 @@
-#merch {
+#players {
     color: #fff;
     scroll-margin-top: 80px; /* Adjust this value to match your navbar height */
     min-height: 300px; /* Ensures section is visible */
@@ -9,10 +9,10 @@
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;;
 }
 
-.merch-title {
+.players-title {
   position: relative;
   font-size: 2rem;
   color: #ffffff;
@@ -37,7 +37,7 @@
   }
 }
 
-.merch-grid {
+.players-grid {
   display: flex;
   flex-direction: row;
   gap: 2.5rem;
@@ -47,7 +47,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-.merch-card {
+.players-card {
   background: rgba(255,255,255,0.08);
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.18);
@@ -61,12 +61,12 @@
   font-size: 1.2rem;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.merch-card:hover {
+.players-card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 
-.merch-img-placeholder {
+.players-img-placeholder {
   font-size: 4rem;
   background: #ffd70022;
   border-radius: 50%;
@@ -79,7 +79,7 @@
   box-shadow: 0 2px 12px #ffd70033;
 }
 
-.merch-card-title {
+.players-card-title {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -87,7 +87,7 @@
   letter-spacing: 1px;
 }
 
-.merch-card-price {
+.players-card-price {
   font-size: 1.1rem;
   color: #fff;
   margin-bottom: 1.2rem;

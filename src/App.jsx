@@ -1,30 +1,37 @@
 import './App.css';
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Navbar from './Navbar.jsx';
 import About from './About.jsx';
 import Merch from './Merch.jsx';
 import Aurora from './Aurora.jsx';
+import Players from './Players.jsx';
+import Login from './Login.jsx';
 
 function App() {
 
   return(
-    <>
-    <About/>
-     <Navbar/>
-    <Merch/>
-  
-<Aurora
-  colorStops={["#FF001F", "#0010F0", "#FF001F"]}
-  blend={0.5}
-  amplitude={1.0}
-  speed={0.5}
-/>
-    </>
-   
-
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <About/>
+            <Merch/>
+            <Players/>
+          </>
+        } />
+        <Route path="/login" element={<Login/>} />
+      </Routes>
+      <Aurora
+        colorStops={["#FF001F", "#0010F0", "#FF001F"]}
+        blend={1.0}
+        amplitude={2.0}
+        speed={1.0}
+      />
+    </Router>
   );
-  
 }
 
 export default App;

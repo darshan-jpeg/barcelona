@@ -24,7 +24,7 @@ body {
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
   margin-top: 24px;
   width: 100%;
@@ -45,6 +45,7 @@ body {
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
  ;
+
 }
 
 .news-item:hover {
