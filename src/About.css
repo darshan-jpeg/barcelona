@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+
 body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
   
 }
 
@@ -19,7 +23,6 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .news-grid {
@@ -31,21 +34,41 @@ body {
   justify-items: center;
 }
 
+.news-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.news-grid-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  width: 700px;
+  max-width: 90vw;
+}
+
 .news-item {
   background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 24px 32px;
-  min-height: 120px;
+  border-radius: 12px;
+  min-width: 320px;
+  min-height: 180px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
   cursor: pointer;
-  font-family: Arial, Helvetica, sans-serif;
- ;
-
+  padding: 2rem 2.5rem;
 }
 
 .news-item:hover {
@@ -55,13 +78,45 @@ body {
   color: #222;
 }
 
+.arrow-btn {
+  background: #ffd700;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #232526;
+  margin: 0 1rem;
+  box-shadow: 0 2px 8px #ffd70044;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  z-index: 2;
+}
+
+.arrow-btn:hover {
+  background: #ffb300;
+  color: #181818;
+  box-shadow: 0 4px 16px #ffd70066;
+}
+
+.arrow-btn.left {
+  left: 0;
+}
+
+.arrow-btn.right {
+  right: 0;
+}
+
 .about-container h2 {
   position: relative;
   font-size: 2rem;
   color: #ffffff;
   font-weight: 800;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+
   letter-spacing: 2px;
   margin: 40px 0;
 

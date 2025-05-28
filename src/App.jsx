@@ -8,6 +8,7 @@ import Merch from './Merch.jsx';
 import Aurora from './Aurora.jsx';
 import Players from './Players.jsx';
 import Login from './Login.jsx';
+import Admin from './Admin.jsx';
 
 function App() {
 
@@ -20,9 +21,11 @@ function App() {
             <About/>
             <Merch/>
             <Players/>
+            
           </>
         } />
         <Route path="/login" element={<Login/>} />
+        <Route path="/admin" element={<Admin/>} />
       </Routes>
       <Aurora
         colorStops={["#FF001F", "#0010F0", "#FF001F"]}
