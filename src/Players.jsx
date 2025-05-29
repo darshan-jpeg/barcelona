@@ -1,70 +1,38 @@
 import './Players.css';
+import { useState } from 'react';
 
 function Players() {
-    // Placeholder Barca jersey image URL
-    const jerseyImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FC_Barcelona_home_jersey_2021-22.png/200px-FC_Barcelona_home_jersey_2021-22.png";
+    const playerList = [
+        'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10'
+    ];
+    const [startIdx, setStartIdx] = useState(0);
+    const visibleCount = 2;
+    const endIdx = startIdx + visibleCount;
+    const canGoLeft = startIdx > 0;
+    const canGoRight = endIdx < playerList.length;
+
+    const handleLeft = () => {
+        if (canGoLeft) setStartIdx(startIdx - 1);
+    };
+    const handleRight = () => {
+        if (canGoRight) setStartIdx(startIdx + 1);
+    };
+
     return(
-
-<section id="Players" className="Players">
-  <h1 className="players-title">Culers on the pitch</h1>
- 
-  <div className="players-grid">
-    <div className="players-card">
-      
-      <div className="players-card-title">P1</div>
-      
-    </div>
-    <div className="players-card">
-      
-      <div className="players-card-title">P2</div>
-    
-    </div>
-    <div className="players-card">
-      
-      <div className="players-card-title">P3</div>
-      
-    </div>
-    <div className="players-card">
-      
-      <div className="players-card-title">P4</div>
-      
-    </div>
-    
-     <div className="players-card">
-      
-      <div className="players-card-title">P5</div>
-      
-    </div>
-     <div className="players-card">
-      
-      <div className="players-card-title">P6</div>
-      
-    </div>
-     <div className="players-card">
-      
-      <div className="players-card-title">P7</div>
-      
-    </div>
-     <div className="players-card">
-      
-      <div className="players-card-title">P8</div>
-      
-    </div>
-     <div className="players-card">
-      
-      <div className="players-card-title">P9</div>
-      
-    </div>
-     <div className="players-card">
-      
-      <div className="players-card-title">P10</div>
-      
-    </div>
-    
-
-  </div>
-</section>
-
+        <section id="Players" className="Players">
+            <h1 className="players-title">Culers on the pitch</h1>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '2.5rem' }}>
+                <button onClick={handleLeft} disabled={!canGoLeft} style={{ fontSize: '2rem', background: 'none', border: 'none',  color: '#fff', cursor: canGoLeft ? 'pointer' : 'not-allowed', opacity: canGoLeft ? 1 : 0.3 }}>&lt;</button>
+                <div className="players-grid" style={{ width: '600px', justifyContent: 'center' }}>
+                    {playerList.slice(startIdx, endIdx).map((name, idx) => (
+                        <div className="players-card" key={startIdx + idx}>
+                            <div className="players-card-title">{name}</div>
+                        </div>
+                    ))}
+                </div>
+                <button onClick={handleRight} disabled={!canGoRight} style={{ fontSize: '2rem', background: 'none', border: 'none', color: '#fff', cursor: canGoRight ? 'pointer' : 'not-allowed', opacity: canGoRight ? 1 : 0.3 }}>&gt;</button>
+            </div>
+        </section>
     );
 }
 

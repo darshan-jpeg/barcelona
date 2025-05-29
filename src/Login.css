@@ -7,39 +7,29 @@ body {
 
 .login-title {
   position: relative;
-  font-size: 2rem;
+  font-size:2rem;
   color: #ffffff;
-  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   letter-spacing: 2px;
-  margin: 40px 0;
+  
 
   /* Floating animation */
-  animation: floatText 3s ease-in-out infinite;
+  
 }
-@keyframes floatText {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
+
 
 .login-form {
 
-    background-color: #ffffff;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    background:transparent;
+    
     padding: 4rem 5rem;
     border-radius: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: floatText 3s ease-in-out infinite;
-    background-color: #0d1321; 
+    
+    
 
 }
 
@@ -55,11 +45,11 @@ body {
     background: linear-gradient(135deg, #004D98, #A50044);
   color: #ffffff; /* Gold touch like the crest */
   border: none;
-  padding: 14px 48px;
+  padding: 14px 60px;
   font-size: 16px;
   font-weight: bold;
  
-  border-radius: 12px;
+  border-radius: 50px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -79,6 +69,7 @@ body {
   background: rgba(255, 255, 255, 0.2);
   transform: skewX(-50deg);
   transition: all 0.75s ease-in-out;
+  
 }
 
 .login-button:hover::after {
@@ -87,13 +78,11 @@ body {
 
 .login-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(165, 0, 68, 0.6);
 }
 
 label {
   margin-bottom: 5px;
-  font-weight: 600;
-  color: #fff4f4;
+  font-family: 'Montserrat', sans-serif;
   
 }
 
@@ -101,13 +90,14 @@ input[type="text"],
 input[type="password"] {
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  ;
+  border:none;
   border-radius: 6px;
-  transition: border-color 0.3s ease;
 }
 
+
+
 input:focus {
-  border-color: #000000;
+  
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
