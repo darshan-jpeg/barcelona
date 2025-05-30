@@ -1,7 +1,15 @@
 import './Merch.css';
 import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Merch() {
+     useEffect(() => {
+    fetch('http://localhost:5000/api/content/Merch')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) setNewsItems(data.items);
+      });
+  }, []);
     // Placeholder Barca jersey image URL
     const jerseyImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FC_Barcelona_home_jersey_2021-22.png/200px-FC_Barcelona_home_jersey_2021-22.png";
     const merchItems = [
@@ -35,9 +43,10 @@ function Merch() {
                 <div className="merch-grid" style={{ width: '900px', justifyContent: 'center' }}>
                     {merchItems.slice(startIdx, endIdx).map((item, idx) => (
                         <div className="merch-card" key={startIdx + idx}>
-                            {/* <img src={jerseyImg} alt="Barca Jersey" style={{ width: '100px', marginBottom: '1rem' }} /> */}
-                            <div className="merch-card-title">{item.title}</div>
-                            <div className="merch-card-price">{item.price}</div>
+                            {item.image && <img src={item.image} alt={item.title} className="merch-item-img" />}
+              <div className = "mitemtitle" >{item.title}</div>
+              <div className ="mitemdescription">{item.description}</div>
+                           
                         </div>
                     ))}
                 </div>
