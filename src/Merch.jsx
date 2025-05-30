@@ -1,15 +1,9 @@
 import './Merch.css';
 import { useState } from 'react';
-import React, { useState, useEffect } from 'react';
+
 
 function Merch() {
-     useEffect(() => {
-    fetch('http://localhost:5000/api/content/Merch')
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) setNewsItems(data.items);
-      });
-  }, []);
+     
     // Placeholder Barca jersey image URL
     const jerseyImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FC_Barcelona_home_jersey_2021-22.png/200px-FC_Barcelona_home_jersey_2021-22.png";
     const merchItems = [
