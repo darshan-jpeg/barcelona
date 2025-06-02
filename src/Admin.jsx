@@ -9,13 +9,20 @@ function Admin() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [newsList, setNewsList] = useState([]);
+  const [merchList, setMerchList] = useState([]);
 
-  // Fetch all news on mount or after save/delete
+  // Fetch all news and merch on mount or after save/delete
   useEffect(() => {
     fetch('http://localhost:5000/api/content/News')
       .then(res => res.json())
       .then(data => {
         if (data.success) setNewsList(data.items);
+      });
+      
+    fetch('http://localhost:5000/api/content/Merch')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) setMerchList(data.items);
       });
   }, [modalOpen]);
 
@@ -72,6 +79,17 @@ function Admin() {
     }
   };
 
+  const handleDeleteMerch = async (id) => {
+    if (window.confirm('Are you sure you want to delete this merch item?')) {
+      try {
+        await fetch(`http://localhost:5000/api/content/${id}`, { method: 'DELETE' });
+        setMerchList(merchList.filter(item => item._id !== id));
+      } catch (err) {
+        alert('Error deleting merch');
+      }
+    }
+  };
+
   return (
     <section id="admin" className="Admin">
       <h1 className="admin-title">Admin Section</h1>
@@ -116,17 +134,32 @@ function Admin() {
         </>
       )}
 
-      <div style={{ width: '100%', maxWidth: 900, margin: '2rem auto' }}>
-        <h2 style={{ color: '#fff', marginBottom: '1rem' }}>Current News</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+      <div className="admin-section-list">
+        <h2 className="admin-section-title">Current News</h2>
+        <div className="admin-list-grid">
           {newsList.map(item => (
-            <div key={item._id} style={{ background: 'rgba(255,255,255,0.08)', borderRadius: 12, padding: 24, display: 'flex', alignItems: 'center', gap: 24 }}>
-              {item.image && <img src={item.image} alt={item.title} style={{ width: 100, height: 70, objectFit: 'cover', borderRadius: 8 }} />}
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 600, fontSize: 18 }}>{item.title}</div>
-                <div style={{ color: '#ccc', fontSize: 15 }}>{item.description}</div>
+            <div key={item._id} className="admin-list-item">
+              {item.image && <img src={item.image} alt={item.title} className="admin-list-img" />}
+              <div className="admin-list-content">
+                <div className="admin-list-title">{item.title}</div>
+                <div className="admin-list-desc">{item.description}</div>
               </div>
-              <button onClick={() => handleDeleteNews(item._id)} style={{ background: '#d32f2f', color: '#fff', border: 'none', borderRadius: 6, padding: '0.5rem 1rem', cursor: 'pointer' }}>Delete</button>
+              <button onClick={() => handleDeleteNews(item._id)} className="admin-list-delete">Delete</button>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="admin-section-list">
+        <h2 className="admin-section-title">Current Merch</h2>
+        <div className="admin-list-grid">
+          {merchList.map(item => (
+            <div key={item._id} className="admin-list-item">
+              {item.image && <img src={item.image} alt={item.title} className="admin-list-img" />}
+              <div className="admin-list-content">
+                <div className="admin-list-title">{item.title}</div>
+                <div className="admin-list-desc">{item.description}</div>
+              </div>
+              <button onClick={() => handleDeleteMerch(item._id)} className="admin-list-delete">Delete</button>
             </div>
           ))}
         </div>

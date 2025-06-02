@@ -5,16 +5,16 @@ body {
 }
 
 #merch {
-    color: #fff;
-    scroll-margin-top: 80px; /* Adjust this value to match your navbar height */
-    min-height: 300px; /* Ensures section is visible */
-    background: transparent; /* Adds contrast for visibility */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 100px;
+  color: #fff;
+  scroll-margin-top: 80px;
+  min-height: 300px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 100px;
 }
 
 .merch-title {
@@ -25,20 +25,13 @@ body {
   text-align: center;
   letter-spacing: 2px;
   margin: 40px 0;
-
-  /* Floating animation */
   animation: floatText 3s ease-in-out infinite;
 }
+
 @keyframes floatText {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 .merch-grid {
@@ -46,56 +39,115 @@ body {
   flex-direction: row;
   gap: 1.5rem;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 2rem;
   flex-wrap: nowrap;
 }
+
 .merch-card {
-  background-color: tomato;
-  border: none;
-  border-radius: 25px;
-  box-shadow: none;
-  padding: 7rem 4rem;
-  min-width: 180px;
-  max-width: 180px;
-  min-height: 180px;;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  margin: 0 0.2rem;
-  transition: transform 0.2s;
+  justify-content: flex-start;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  min-width: 260px;
+  max-width: 350px;
+  height: 500px;
+  margin: 0 1rem;
 }
+
+.merch-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 0;
+}
+
+.merch-card:hover::before {
+  opacity: 1;
+}
+
 .merch-card:hover {
-  transform: scale(1.05);
-  box-shadow: none;
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
 .merch-img-placeholder {
   font-size: 4rem;
-  background: #ffd70022;
-  border-radius: 50%;
   width: 100px;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.2rem;
-  box-shadow: 0 2px 12px #ffd70033;
 }
 
-.merch-card-title {
-  font-size: 1.4rem;
+.merch-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 0;
+  display: block;
+  transition: filter 0.3s;
+  z-index: 1;
+}
+
+.mitemtitle, .mitemdescription {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+  border-radius: 0.75rem;
+  gap: 0.5rem;
+  width: 70%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Display BOTH on hover */
+.merch-card:hover .mitemtitle,
+.merch-card:hover .mitemdescription {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+/* Optional distinction between them */
+.mitemtitle {
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #ffffff;
-  letter-spacing: 1px;
+  top:35%;
 }
 
-.merch-card-price {
-  font-size: 1.1rem;
-  color: #fff;
-  margin-bottom: 1.2rem;
-  font-weight: 500;
+.mitemdescription {
+  font-size: 0.95rem;
+  margin-top: 2.5rem; /* pushes description slightly below title */
+  top:55%;
+}
+
+.merch-card:hover .merch-item-img {
+  filter: blur(2px) brightness(0.7);
 }
