@@ -10,8 +10,9 @@ function Admin() {
   const [image, setImage] = useState("");
   const [newsList, setNewsList] = useState([]);
   const [merchList, setMerchList] = useState([]);
+  const [playerList, setPlayerList] = useState([]);
 
-  // Fetch all news and merch on mount or after save/delete
+  // Fetch all news, merch, and players on mount or after save/delete
   useEffect(() => {
     fetch('http://localhost:5000/api/content/News')
       .then(res => res.json())
@@ -23,6 +24,12 @@ function Admin() {
       .then(res => res.json())
       .then(data => {
         if (data.success) setMerchList(data.items);
+      });
+
+    fetch('http://localhost:5000/api/content/Players')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) setPlayerList(data.items);
       });
   }, [modalOpen]);
 
@@ -86,6 +93,17 @@ function Admin() {
         setMerchList(merchList.filter(item => item._id !== id));
       } catch (err) {
         alert('Error deleting merch');
+      }
+    }
+  };
+
+  const handleDeletePlayer = async (id) => {
+    if (window.confirm('Are you sure you want to delete this player?')) {
+      try {
+        await fetch(`http://localhost:5000/api/content/${id}`, { method: 'DELETE' });
+        setPlayerList(playerList.filter(item => item._id !== id));
+      } catch (err) {
+        alert('Error deleting player');
       }
     }
   };
@@ -160,6 +178,21 @@ function Admin() {
                 <div className="admin-list-desc">{item.description}</div>
               </div>
               <button onClick={() => handleDeleteMerch(item._id)} className="admin-list-delete">Delete</button>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="admin-section-list">
+        <h2 className="admin-section-title">Current Players</h2>
+        <div className="admin-list-grid">
+          {playerList.map(item => (
+            <div key={item._id} className="admin-list-item">
+              {item.image && <img src={item.image} alt={item.title} className="admin-list-img" />}
+              <div className="admin-list-content">
+                <div className="admin-list-title">{item.title}</div>
+                <div className="admin-list-desc">{item.description}</div>
+              </div>
+              <button onClick={() => handleDeletePlayer(item._id)} className="admin-list-delete">Delete</button>
             </div>
           ))}
         </div>

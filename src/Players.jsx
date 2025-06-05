@@ -1,15 +1,22 @@
 import './Players.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Players() {
-    const playerList = [
-        'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10'
-    ];
+    const [playerItems, setPlayerItems] = useState([]);
     const [startIdx, setStartIdx] = useState(0);
+    const [hoveredCard, setHoveredCard] = useState(null);
     const visibleCount = 2;
     const endIdx = startIdx + visibleCount;
     const canGoLeft = startIdx > 0;
-    const canGoRight = endIdx < playerList.length;
+    const canGoRight = endIdx < playerItems.length;
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/content/Players')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) setPlayerItems(data.items);
+            });
+    }, []);
 
     const handleLeft = () => {
         if (canGoLeft) setStartIdx(startIdx - 1);
@@ -24,11 +31,23 @@ function Players() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '2.5rem' }}>
                 <button onClick={handleLeft} disabled={!canGoLeft} style={{ fontSize: '2rem', background: 'none', border: 'none',  color: '#fff', cursor: canGoLeft ? 'pointer' : 'not-allowed', opacity: canGoLeft ? 1 : 0.3 }}>&lt;</button>
                 <div className="players-grid" style={{ width: '600px', justifyContent: 'center' }}>
-                    {playerList.slice(startIdx, endIdx).map((name, idx) => (
-                        <div className="players-card" key={startIdx + idx}>
-                            <div className="players-card-title">{name}</div>
-                        </div>
-                    ))}
+                    {playerItems.slice(startIdx, endIdx).map((item, idx) => {
+                        const realIdx = startIdx + idx;
+                        return (
+                            <div
+                                className="players-card"
+                                key={item._id || idx}
+                                onMouseEnter={() => setHoveredCard(realIdx)}
+                                onMouseLeave={() => setHoveredCard(null)}
+                            >
+                                {item.image && <img src={item.image} alt={item.title} className="players-img-placeholder" />}
+                                <div className="player-title">{item.title}</div>
+                                {hoveredCard === realIdx && (
+                                    <div className="player-description">{item.description}</div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
                 <button onClick={handleRight} disabled={!canGoRight} style={{ fontSize: '2rem', background: 'none', border: 'none', color: '#fff', cursor: canGoRight ? 'pointer' : 'not-allowed', opacity: canGoRight ? 1 : 0.3 }}>&gt;</button>
             </div>

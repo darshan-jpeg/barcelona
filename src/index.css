@@ -5,12 +5,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(
-    to right,
-    #000000,
-    #000000,
-    #000000
-  ); /* Gradient background */
+  background: linear-gradient(135deg, #141414, #b81d24);
+  
 }
 
 html {

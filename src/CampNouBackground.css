@@ -1,0 +1,57 @@
+
+
+.background-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #000014 0%, #000000 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 50px;
+  z-index: -1;
+}
+
+/* Glowing Stadium Lights */
+.light {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #0073e6;
+  box-shadow: 0 0 20px 8px #0073e6;
+  animation: glowPulse 3s ease-in-out infinite;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 8px #0073e6);
+}
+
+.light-1 { top: 5%; left: 10%; animation-delay: 0s; }
+.light-2 { top: 7%; left: 25%; animation-delay: 0.3s; }
+.light-3 { top: 6%; left: 40%; animation-delay: 0.6s; }
+.light-4 { top: 5%; left: 55%; animation-delay: 0.9s; }
+.light-5 { top: 7%; left: 70%; animation-delay: 1.2s; }
+.light-6 { top: 6%; left: 85%; animation-delay: 1.5s; }
+.light-7 { top: 12%; left: 30%; animation-delay: 1.8s; }
+.light-8 { top: 12%; left: 60%; animation-delay: 2.1s; }
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 30px 10px #0073e6;
+    opacity: 0.7;
+  }
+  50% {
+    box-shadow: 0 0 50px 20px #3399ff;
+    opacity: 1;
+  }
+}
+
+/* Camp Nou Silhouette */
+.campnou-silhouette {
+  width: 70%;
+  max-width: 700px;
+  stroke-opacity: 0.15;
+  fill: transparent;
+  margin-bottom: 40px;
+  filter: drop-shadow(0 0 6px #0073e6);
+}
