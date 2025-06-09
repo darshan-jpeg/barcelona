@@ -1,0 +1,75 @@
+/* Universal player stats CSS */
+.player-stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  padding: 3rem 2rem;
+  background: none;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+
+
+.player-stats-content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.player-photo-placeholder {
+  width: 280px;
+  height: 380px;
+  background: #001c3b;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-stats-box {
+  flex: 1;
+  min-width: 320px;
+  max-width: 650px;
+  background: transparent;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 18px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.player-stats-list {
+  list-style: none;
+  padding: 1.5rem 2rem;
+  font-size: 1.2rem;
+  line-height: 2;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.player-stats-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.player-stats-list li:last-child {
+  border-bottom: none;
+}
+
+.player-stats-list strong {
+  color: #ffc62a;
+  font-weight: 700;
+}

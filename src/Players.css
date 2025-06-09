@@ -59,14 +59,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
-  background: transparent;
+  background: linear-gradient(to top, #000 10%, #2d2dfc 100%);
   
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
 
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  
+  overflow: visible;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   min-width: 200px;
@@ -74,12 +73,15 @@ body {
   height: 340px;
   margin: 0 1rem;
 }
+.players-card:nth-child(odd) {
+  background: linear-gradient(to top, #000 10%, #fc2d2d 100%);
+}
 .players-card::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 1.5rem;
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+  
   opacity: 0;
   transition: opacity 0.4s;
   z-index: 0;
@@ -91,7 +93,7 @@ body {
 
 .players-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.1);
+ 
 }
 
 .players-img-placeholder {
@@ -100,13 +102,12 @@ body {
   object-fit: cover;
   margin-bottom: 0;
   display: block;
-  transition: filter 0.3s;
+  transition: filter 0.3s, transform 0.4s cubic-bezier(.4,0,.2,1);
   z-index: 1;
+  position: relative;
 }
 
-.players-card:hover .players-img-placeholder {
-  filter: blur(2px) brightness(0.7);
-}
+
 
 .player-title {
   position: absolute;
@@ -132,23 +133,59 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.95);
-  padding: 1rem 1.5rem;
-  background: transparent;
+  padding: 2rem 2.2rem 2.2rem 2.2rem;
   color: #ffffff;
+  font-size: 1.13rem;
+  font-weight: 600;
+  border-radius: 1.1rem;
   text-align: center;
-  border-radius: 0.75rem;
-  font-size: 0.95rem;
-  z-index: 2;
-  font-family: 'Montserrat', sans-serif;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s, transform 0.3s;
-  box-shadow: none;
+  z-index: 4;
+ 
+  transition: opacity 0.35s, transform 0.35s;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
 }
 
 .players-card:hover .player-description {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
+}
+
+.player-try-btn {
+  margin-bottom:100px;
+  background: none;
+  color:transparent;
+  font-size: 1.08rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: none;
+  transition: none;
+  outline: none;
+  z-index: 10;
+  position: absolute;
+  left: 20%;
+ 
+  transform: translateX(-50%);
+  opacity: 1;
+ 
+}
+.player-try-btn:hover {
+  background: none;
+  color: #ffffff;
+}
+
+.players-card :hover .player-try-btn {
+  
+  color:#fff;
 }
 

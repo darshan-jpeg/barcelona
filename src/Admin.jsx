@@ -113,21 +113,18 @@ function Admin() {
       <h1 className="admin-title">Admin Section</h1>
       <p className="admin-subtext">Manage site content here.</p>
 
+      <button className="admin-home-btn" onClick={() => window.location.href = '/#home'}>🏠 Home</button>
+
       <div className="admin-grid">
-        <div className="admin-card transparent-card">
+        <div className="admin-card modern-admin-card">
+          {/* Floating football */}
+          <div className="admin-floating-football">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" alt="Football" />
+          </div>
           <div className="admin-card-title">Content Management</div>
           <div className="admin-card-description">
             <ul className="admin-content-actions">
-              <li onClick={handleEdit}>✏️ Edit Content</li>
-              <li onClick={() => setIsActive(!isActive)}>
-                🔄 Set Content{' '}
-                <span className={`status-toggle ${isActive ? 'active' : 'inactive'}`}>
-                  {isActive ? 'Active' : 'Inactive'}
-                </span>
-              </li>
-              <li onClick={handleDelete}>
-                🗑️ Delete Content
-              </li>
+              <li onClick={handleEdit} className="admin-edit-btn">✏️ Edit Content</li>
             </ul>
           </div>
         </div>

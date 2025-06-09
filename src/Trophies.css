@@ -1,0 +1,169 @@
+.trophies-section {
+  width: 100vw;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: none;
+  padding: 2.5rem 0 3rem 0;
+}
+
+.trophies-title {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.trophies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2.2rem auto;
+}
+
+.trophy-row {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0.5rem 0;
+  gap: 3.5rem;
+  min-height: 140px;
+  transition: none;
+  justify-content: flex-start;
+}
+
+.trophy-row:hover {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.trophy-icon {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7.2rem;
+  color: #ffc62a;
+  filter: drop-shadow(0 2px 4px #0008);
+  flex-shrink: 0;
+}
+
+.trophy-label {
+  flex: 1;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 2px;
+  text-align: left;
+  margin-left: 2.2rem;
+}
+
+.trophy-count {
+  font-size: 4.2rem;
+  font-weight: 900;
+  color: #ffc62a;
+  margin-left: 2.2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #0008;
+}
+
+.trophy-type {
+  display: none;
+}
+
+.trophies-scrollbar-row {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem auto 0 auto;
+}
+
+.trophies-year-slider {
+  width: 100%;
+  accent-color: #ffffff;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #3a29ff 0%, #ff94b4 50%, #ff3232 100%);
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+
+.trophies-year-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff3232 40%, #3a29ff 100%);
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+
+
+.trophies-year-slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff3232 40%, #3a29ff 100%);
+  box-shadow: 0 2px 12px #ff3232cc, 0 0 4px #3a29ffcc;
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.trophies-year-slider::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, #ff3232 10%, #ff94b4 90%);
+  box-shadow: 0 4px 18px #ff3232cc, 0 0 8px #3a29ffcc;
+}
+
+.trophies-year-slider::-ms-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff3232 40%, #3a29ff 100%);
+  box-shadow: 0 2px 12px #ff3232cc, 0 0 4px #3a29ffcc;
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.trophies-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #001c3b;
+  color: #ffc62a;
+  font-size: 1.08rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 0.2rem 1.4rem;
+  margin-right: 1.2rem;
+
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.18s, color 0.18s, transform 0.15s;
+  outline: none;
+}
+
+.trophies-home-btn:hover {
+  background: #030174;
+  color: #fff;
+  box-shadow: 0 4px 16px #a5004422;
+  transform: translateY(-2px);
+}
