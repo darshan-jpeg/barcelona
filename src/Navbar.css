@@ -109,7 +109,7 @@ background: linear-gradient(to right, #7f031f, #8c193f, #131b55, #0a0e2a);
 .navbar-logo {
   position: absolute;
   top: -15px;
-  right: 80%;
+  right: 83%;
   transform: translateX(-50%);
   max-height: 100px;
   max-width: 100px;

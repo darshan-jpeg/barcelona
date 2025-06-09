@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import { CartContext } from './backend/CartContext';
 
 function Navbar({ onlyHome }) {
   const [show, setShow] = useState(false);
   const lastScrollY = useRef(0); // <- useRef retains value across renders
+  const { cart } = useContext(CartContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +39,12 @@ function Navbar({ onlyHome }) {
           <li><Link to="/trophies" className="nav-item">Trophies</Link></li>
         </>}
       </ul>
+      <Link to="/cart" style={{ position: 'relative', marginLeft: '1.5rem', color: '#fff', textDecoration: 'none', fontSize: '1.7rem' }}>
+        <span role="img" aria-label="cart">🛒</span>
+        {cart.length > 0 && (
+          <span style={{ position: 'absolute', top: '-8px', right: '-10px', background: '#fc2d2d', color: '#fff', borderRadius: '50%', padding: '2px 7px', fontSize: '0.9rem', fontWeight: 'bold' }}>{cart.length}</span>
+        )}
+      </Link>
     </nav>
   );
 }

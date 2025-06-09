@@ -1,7 +1,10 @@
-import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+
+// Context
+import { CartProvider } from './backend/CartContext.jsx';
+
+// Components
 import Navbar from './Navbar.jsx';
 import About from './About.jsx';
 import Merch from './Merch.jsx';
@@ -15,42 +18,49 @@ import RaphinhaStats from './RaphinhaStats.jsx';
 import LamineStats from './LamineStats.jsx';
 import FerranStats from './FerranStats.jsx';
 import LewandowskiStats from './LewandowskiStats.jsx';
-  
+import Cart from './Cart.jsx'; // Cart Page
 
+import './App.css';
 
 function App() {
+  return (
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <About />
+                <Merch />
+                <Players />
+                <CampNouBackground />
+                <Aurora
+               colorStops={["#0B0B0B", "#004D98", "#FFFFFF", "#A50044"]}
 
-  return(
-    <Router>
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Navbar/>
-            <About/>
-            <Merch/>
-            <Players/>
-            <CampNouBackground/>
-            <Aurora
-              colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
-              blend={1.0}
-              resolution={{ width: window.innerWidth, height: window.innerHeight }}
-              amplitude={1.0}
-              speed={0.5}
-            />
-          </>
-        } />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/admin" element={<Admin/>} />
-        <Route path="/trophies" element={<Trophies />} />
-        <Route path="/player/raphinha" element={<RaphinhaStats />} />
-        <Route path="/player/lamine" element={<LamineStats />} />
-        <Route path="/player/ferran" element={<FerranStats />} />
-        <Route path="/player/lewandowski" element={<LewandowskiStats />} />
-        
-        
-      </Routes>
-    
-    </Router>
+
+
+
+                  blend={1.0}
+                  resolution={{ width: window.innerWidth, height: window.innerHeight }}
+                  amplitude={1.0}
+                  speed={0.5}
+                />
+              </>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/trophies" element={<Trophies />} />
+          <Route path="/cart" element={<><Navbar /><Cart /></>} />
+          <Route path="/player/raphinha" element={<RaphinhaStats />} />
+          <Route path="/player/lamine" element={<LamineStats />} />
+          <Route path="/player/ferran" element={<FerranStats />} />
+          <Route path="/player/lewandowski" element={<LewandowskiStats />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

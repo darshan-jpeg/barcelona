@@ -51,7 +51,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   background: linear-gradient(to top, #000 5%, #fc2d2d 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+ 
   border-radius: 25px;
   overflow: hidden;
   padding: 0;
@@ -190,4 +190,35 @@ body {
 
 .merch-size-btn:hover {
   color: #ccc;
+}
+
+.merch-size-btn.selected {
+  background: #fc2d2d;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(252,45,45,0.15);
+}
+
+.add-to-cart-btn {
+  margin-top: 1rem;
+  background: #fc2d2d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.add-to-cart-btn:disabled {
+  background: #888;
+  color: #eee;
+  cursor: not-allowed;
+}
+
+.add-to-cart-btn:not(:disabled):hover {
+  background: #b71c1c;
 }
