@@ -1,7 +1,9 @@
 import React from 'react';
 import './PlayerStats.css';
+
 function LewandowskiStats() {
   const [lewaImg, setLewaImg] = React.useState(null);
+
   React.useEffect(() => {
     fetch('http://localhost:5000/api/content/Players')
       .then(res => res.json())
@@ -17,13 +19,18 @@ function LewandowskiStats() {
 
   return (
     <section className="player-stats-container">
-      <div className="player-photo-placeholder">
-        {lewaImg ? (
-          <img src={lewaImg} alt="Robert Lewandowski" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px' }} />
-        ) : null}
+      <div className="player-photo-glass">
+        {lewaImg && (
+          <img
+            src={lewaImg}
+            alt="Robert Lewandowski"
+            className="player-image"
+          />
+        )}
       </div>
+
       <div className="player-stats-box">
-        <h2 className="player-titles">Robert Lewandowski Stats</h2>
+        <h2 className="player-titles">Robert Lewandowski</h2>
         <ul className="player-stats-list">
           <li><strong>Full Name:</strong> Robert Lewandowski</li>
           <li><strong>Date of Birth:</strong> 21 August 1988</li>

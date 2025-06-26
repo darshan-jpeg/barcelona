@@ -2,8 +2,8 @@ import React from 'react';
 import './PlayerStats.css';
 
 function RaphinhaStats() {
-  // Fetch Raphinha's image from the same API as Players
   const [raphinhaImg, setRaphinhaImg] = React.useState(null);
+
   React.useEffect(() => {
     fetch('http://localhost:5000/api/content/Players')
       .then(res => res.json())
@@ -12,7 +12,7 @@ function RaphinhaStats() {
           const raphinha = data.items.find(
             p => p.title && p.title.toLowerCase().includes('raphinha')
           );
-          if (raphinha && raphinha.image) setRaphinhaImg(raphinha.image);
+          if (raphinha?.image) setRaphinhaImg(raphinha.image);
         }
       });
   }, []);
@@ -20,9 +20,13 @@ function RaphinhaStats() {
   return (
     <section className="player-stats-container">
       <div className="player-photo-placeholder">
-        {raphinhaImg ? (
-          <img src={raphinhaImg} alt="Raphinha" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px' }} />
-        ) : null}
+        {raphinhaImg && (
+          <img
+            src={raphinhaImg}
+            alt="Raphinha"
+            className="player-image"
+          />
+        )}
       </div>
       <div className="player-stats-box">
         <h2 className="player-titles">Raphinha Stats</h2>

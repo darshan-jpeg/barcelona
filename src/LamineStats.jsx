@@ -1,7 +1,9 @@
 import React from 'react';
 import './PlayerStats.css';
+
 function LamineStats() {
   const [lamineImg, setLamineImg] = React.useState(null);
+
   React.useEffect(() => {
     fetch('http://localhost:5000/api/content/Players')
       .then(res => res.json())
@@ -17,13 +19,18 @@ function LamineStats() {
 
   return (
     <section className="player-stats-container">
-      <div className="player-photo-placeholder">
-        {lamineImg ? (
-          <img src={lamineImg} alt="Lamine Yamal" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px' }} />
-        ) : null}
+      <div className="player-photo-glass">
+        {lamineImg && (
+          <img
+            src={lamineImg}
+            alt="Lamine Yamal"
+            className="player-image"
+          />
+        )}
       </div>
+
       <div className="player-stats-box">
-        <h2 className="player-titles">Lamine Yamal Stats</h2>
+        <h2 className="player-titles">Lamine Yamal</h2>
         <ul className="player-stats-list">
           <li><strong>Full Name:</strong> Lamine Yamal Nasraoui Ebana</li>
           <li><strong>Date of Birth:</strong> 13 July 2007</li>

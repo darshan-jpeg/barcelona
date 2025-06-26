@@ -18,9 +18,14 @@ import RaphinhaStats from './RaphinhaStats.jsx';
 import LamineStats from './LamineStats.jsx';
 import FerranStats from './FerranStats.jsx';
 import LewandowskiStats from './LewandowskiStats.jsx';
+import AnsuFatiStats from './AnsuFatiStats.jsx';
+import PedriStats from './PedriStats.jsx';
+import DeJongStats from './DejongStats.jsx';
+
 import Cart from './Cart.jsx'; // Cart Page
 
 import './App.css';
+import SponsorSection from './SponsorSection.jsx';
 
 function App() {
   return (
@@ -47,6 +52,7 @@ function App() {
                   amplitude={1.0}
                   speed={0.5}
                 />
+                <SponsorSection/>
               </>
             }
           />
@@ -58,6 +64,9 @@ function App() {
           <Route path="/player/lamine" element={<LamineStats />} />
           <Route path="/player/ferran" element={<FerranStats />} />
           <Route path="/player/lewandowski" element={<LewandowskiStats />} />
+          <Route path="/player/ansufati" element={<AnsuFatiStats />} />
+          <Route path="/player/pedri" element={<PedriStats />} />
+          <Route path="/player/dejong" element={<DeJongStats />} />
         </Routes>
       </Router>
     </CartProvider>

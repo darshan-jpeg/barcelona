@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+.sponsor-section {
+ 
+  background: linear-gradient(135deg, #0b0b0b, #004d98, #a50044);
+  padding: 2.5rem 1rem 1rem;
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+
+.sponsor-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.sponsor-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.sponsor-logo {
+  flex: 0 0 auto;
+}
+
+.sponsor-svg {
+  width: 100px;
+  height: auto;
+  fill: white;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.sponsor-svg:hover {
+  transform: scale(1.1);
+  fill: #fcd116; /* Barça gold accent */
+}

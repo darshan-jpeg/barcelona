@@ -1,7 +1,9 @@
 import React from 'react';
 import './PlayerStats.css';
+
 function FerranStats() {
   const [ferranImg, setFerranImg] = React.useState(null);
+
   React.useEffect(() => {
     fetch('http://localhost:5000/api/content/Players')
       .then(res => res.json())
@@ -10,7 +12,7 @@ function FerranStats() {
           const ferran = data.items.find(
             p => p.title && p.title.toLowerCase().includes('ferran')
           );
-          if (ferran && ferran.image) setFerranImg(ferran.image);
+          if (ferran?.image) setFerranImg(ferran.image);
         }
       });
   }, []);
@@ -18,9 +20,13 @@ function FerranStats() {
   return (
     <section className="player-stats-container">
       <div className="player-photo-placeholder">
-        {ferranImg ? (
-          <img src={ferranImg} alt="Ferran Torres" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px' }} />
-        ) : null}
+        {ferranImg && (
+          <img
+            src={ferranImg}
+            alt="Ferran Torres"
+            className="player-image"
+          />
+        )}
       </div>
       <div className="player-stats-box">
         <h2 className="player-titles">Ferran Torres Stats</h2>

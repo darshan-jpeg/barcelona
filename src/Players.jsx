@@ -55,6 +55,14 @@ function Players() {
                                     }
                                     else if (item.title && item.title.toLowerCase().includes('ferran')) {
                                       navigate('/player/ferran', { replace: false });} 
+                                      else if (item.title && item.title.toLowerCase().includes('lewandowski')) {
+                                      navigate('/player/lewandowski', { replace: false });} 
+                                      else if (item.title && item.title.toLowerCase().includes('ansu')) {
+                                      navigate('/player/ansufati', { replace: false });}
+                                       else if (item.title && item.title.toLowerCase().includes('pedri')) {
+                                      navigate('/player/pedri', { replace: false });}
+                                       else if (item.title && item.title.toLowerCase().includes('dejong')) {
+                                      navigate('/player/dejong', { replace: false });}
                                     else {
                                       // You can add navigation for other players here if needed
                                     }

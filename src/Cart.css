@@ -1,0 +1,188 @@
+/* ==== Global Cart Styling ==== */
+.cart-section {
+  padding: 3rem 2rem;
+  background: #0b0b0b; /* Pure black background */
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ==== Cart Title ==== */
+.cart-title {
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+  color: #A50044; /* Barça maroon */
+  text-align: center;
+  text-shadow: 0 0 10px rgba(165, 0, 68, 0.3);
+}
+
+/* ==== Empty Cart Text ==== */
+.empty-cart {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* ==== Cart Container ==== */
+.cart-glass-container {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* ==== Cart Table ==== */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 1rem;
+  text-align: center;
+}
+
+.cart-table th {
+  background-color: #A50044;
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
+
+.cart-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.cart-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ==== Remove Button ==== */
+.remove-btn {
+  background-color: #fc2d2d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #e60000;
+}
+
+/* ==== Cart Summary ==== */
+.cart-summary {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.cart-summary h2 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.clear-cart-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+  background-color: #222;
+}
+
+/* ==== Payment Section ==== */
+.payment-box {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease;
+}
+
+.payment-box h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #004D98; /* Barça blue */
+  margin-bottom: 1rem;
+}
+
+.payment-select {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #888;
+  margin-bottom: 1.5rem;
+  background-color: #0b0b0b;
+  color: #fff;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.payment-select:focus {
+  border: 1px solid #A50044;
+}
+
+/* ==== Pay Button ==== */
+.pay-btn {
+  background-color: #004D98;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.pay-btn:hover {
+  background-color: #00306a;
+}
+
+/* ==== Success Box ==== */
+.success-box {
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  background-color: #d4fcd5;
+  color: #17692f;
+  border: 1px solid #a7e4a9;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  animation: fadeIn 0.4s ease-in-out;
+  max-width: 400px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
